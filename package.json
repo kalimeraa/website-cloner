@@ -1,0 +1,54 @@
+{
+  "name": "website-cloner",
+  "productName": "Website Cloner",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A local-first, MIT-licensed desktop website archiver.",
+  "main": "desktop/main.js",
+  "scripts": {
+    "start": "electron .",
+    "serve": "node serve.js",
+    "dev": "electron .",
+    "test": "node --test test/*.test.js",
+    "build": "electron-builder"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "cloakbrowser": "^0.3.32",
+    "jszip": "^3.10.1",
+    "playwright-core": "1.60.0",
+    "proxy-chain": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.websitecloner.desktop",
+    "productName": "Website Cloner",
+    "artifactName": "Website-Cloner-${version}-${os}-${arch}.${ext}",
+    "icon": "build/icon.svg",
+    "files": [
+      "desktop/**/*",
+      "vendor/**/*",
+      "README.md",
+      "LICENSE",
+      "build/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}
